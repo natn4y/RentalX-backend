@@ -10,6 +10,7 @@ import { CategoriesRepository } from '../repositories/CategoriesRepositories';
 
 // SERVICES -->
 import { CreateCategoryService } from '../services/CreateCategoryService';
+import { ListCategoriesService } from '../services/ListCategoriesService';
 // SERVICES <--
 
 const categoriesRoutes = Router();
@@ -26,7 +27,10 @@ categoriesRoutes.post('/', (request, response) => {
 });
 
 categoriesRoutes.get('/', (request, response) => {
-  const result = categoriesRepository.list();
+
+  const listCategoryService = new ListCategoriesService(categoriesRepository);
+
+  const result = listCategoryService.execute();
 
   response.json(result);
 });
