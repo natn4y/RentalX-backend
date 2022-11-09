@@ -6,6 +6,7 @@ import { Category } from '../model/Category';
 
 // REPOSITORIES -->
 import { CategoriesRepository } from '../repositories/CategoriesRepositories';
+import { PostgresCategoriesRepository } from '../repositories/PostgresCategoriesRepositories';
 // REPOSITORIES <--
 
 // SERVICES -->
@@ -14,7 +15,7 @@ import { ListCategoriesService } from '../services/ListCategoriesService';
 // SERVICES <--
 
 const categoriesRoutes = Router();
-const categoriesRepository = new CategoriesRepository();
+const categoriesRepository = new CategoriesRepository(); // Switch database here
 
 categoriesRoutes.post('/', (request, response) => {
   const { name, description }: Category = request.body;

@@ -1,7 +1,7 @@
-import { CategoriesRepository } from '../repositories/CategoriesRepositories';
+import { ICategoriesRepository } from '../repositories/ICategoriesRepositories';
 
 class ListCategoriesService {
-  constructor(private categoriesRepository: CategoriesRepository) {
+  constructor(private categoriesRepository: ICategoriesRepository) {
 
   }
 
