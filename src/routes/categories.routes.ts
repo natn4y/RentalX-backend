@@ -1,17 +1,17 @@
 import { Router } from 'express';
 
 // MODEL -->
-import { Category } from '../model/Category';
+import { Category } from '../modules/cars/model/Category';
 // MODEL <--
 
 // REPOSITORIES -->
-import { CategoriesRepository } from '../repositories/CategoriesRepositories';
-import { PostgresCategoriesRepository } from '../repositories/PostgresCategoriesRepositories';
+import { CategoriesRepository } from '../modules/cars/repositories/CategoriesRepository';
+import { PostgresCategoriesRepository } from '../modules/cars/repositories/PostgresCategoriesRepository';
 // REPOSITORIES <--
 
 // SERVICES -->
-import { CreateCategoryService } from '../services/CreateCategoryService';
-import { ListCategoriesService } from '../services/ListCategoriesService';
+import { CreateCategoryService } from '../modules/cars/services/CreateCategoryService';
+import { ListCategoriesService } from '../modules/cars/services/ListCategoriesService';
 // SERVICES <--
 
 const categoriesRoutes = Router();
