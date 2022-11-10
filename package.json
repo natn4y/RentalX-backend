@@ -2,10 +2,11 @@
   "type": "commonjs",
   "name": "fundamentos-nodejs",
   "version": "1.0.0",
-  "main": "src/index.ts",
+  "main": "src/server.ts",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon && ts-node src/index.ts"
+    "dev": "nodemon && ts-node src/server.ts",
+    "plop": "plop"
   },
   "dependencies": {
     "express": "^4.18.2",
