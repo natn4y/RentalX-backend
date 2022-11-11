@@ -1,0 +1,9 @@
+import { {{sentenceCase PluralRouteName}}Repository } from '../../../repositories/implementations/{{sentenceCase PluralRouteName}}Repository';
+import { Create{{sentenceCase routeName}}Controller } from './Create{{sentenceCase routeName}}Controller';
+import { Create{{sentenceCase routeName}}UseCase } from './Create{{sentenceCase routeName}}UseCase';
+
+const {{PluralRouteName}}Repository = {{sentenceCase PluralRouteName}}Repository.getInstance(); // Modify if necessary
+const create{{sentenceCase routeName}}UseCase = new Create{{sentenceCase routeName}}UseCase({{PluralRouteName}}Repository);
+const create{{sentenceCase routeName}}Controller = new Create{{sentenceCase routeName}}Controller(create{{sentenceCase routeName}}UseCase);
+
+export { create{{sentenceCase routeName}}Controller };

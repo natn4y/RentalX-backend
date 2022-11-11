@@ -1,0 +1,19 @@
+import { Request, Response } from 'express'
+import { {{sentenceCase routeName}} } from '../../../model/{{sentenceCase routeName}}';
+import { Create{{sentenceCase routeName}}UseCase } from './Create{{sentenceCase routeName}}UseCase';
+
+class Create{{sentenceCase routeName}}Controller {
+  constructor(private create{{sentenceCase routeName}}UseCase: Create{{sentenceCase routeName}}UseCase) {
+
+  }
+
+  handle(request: Request, response: Response): Response {
+    const { name, description }: {{sentenceCase routeName}} = request.body;
+
+    this.create{{sentenceCase routeName}}UseCase.execute({ name, description });
+
+    return response.status(201).send();
+  }
+}
+
+export { Create{{sentenceCase routeName}}Controller }

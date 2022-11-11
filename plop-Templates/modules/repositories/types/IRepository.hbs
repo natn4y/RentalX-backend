@@ -1,0 +1,14 @@
+import { {{sentenceCase routeName}} } from '../../model/{{sentenceCase routeName}}'
+
+interface ICreate{{sentenceCase routeName}}DTO {
+  name: string
+  description:  string
+}
+
+interface I{{sentenceCase PluralRouteName}}Repository {
+  findByName(name: string): {{sentenceCase routeName}};
+  list(): {{sentenceCase routeName}}[];
+  create({ name, description }: ICreate{{sentenceCase routeName}}DTO): void;
+}
+
+export { I{{sentenceCase PluralRouteName}}Repository, ICreate{{sentenceCase routeName}}DTO };

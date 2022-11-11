@@ -1,0 +1,12 @@
+import { I{{sentenceCase PluralRouteName}}Repository } from '../../../repositories/types/I{{sentenceCase PluralRouteName}}Repository';
+class List{{sentenceCase PluralRouteName}}UseCase {
+  constructor(private {{PluralRouteName}}Repository: I{{sentenceCase PluralRouteName}}Repository) {
+
+  }
+
+  execute() {
+    return this.{{PluralRouteName}}Repository.list();
+  }
+}
+
+export { List{{sentenceCase PluralRouteName}}UseCase }

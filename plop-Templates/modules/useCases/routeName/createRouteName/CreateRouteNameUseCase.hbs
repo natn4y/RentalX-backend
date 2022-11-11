@@ -1,0 +1,28 @@
+import { I{{sentenceCase PluralRouteName}}Repository } from '../../../repositories/types/I{{sentenceCase PluralRouteName}}Repository';
+
+interface IRequest {
+  name: string
+  description: string
+}
+
+class Create{{sentenceCase routeName}}UseCase {
+  constructor(private {{PluralRouteName}}Repository: I{{sentenceCase PluralRouteName}}Repository) {
+
+  }
+
+  execute({ description, name }: IRequest ) {
+    const {{routeName}}AlreadyExists = this.{{PluralRouteName}}Repository.findByName(name);
+
+    if ({{routeName}}AlreadyExists) {
+      throw new Error('{{sentenceCase routeName}} already exists!')
+    }
+
+    if (name === '') {
+      throw new Error("Check {{routeName}} name!")
+    }
+
+    this.{{PluralRouteName}}Repository.create({ name, description })
+  }
+}
+
+export { Create{{sentenceCase routeName}}UseCase }

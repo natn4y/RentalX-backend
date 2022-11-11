@@ -1,0 +1,17 @@
+import { Request, Response } from 'express'
+
+import { List{{sentenceCase PluralRouteName}}UseCase } from './List{{sentenceCase PluralRouteName}}UseCase';
+
+class List{{sentenceCase PluralRouteName}}Controller {
+  constructor(private list{{sentenceCase PluralRouteName}}UseCase: List{{sentenceCase PluralRouteName}}UseCase) {
+
+  }
+
+  handle(request: Request, response: Response): Response {
+
+  const result = this.list{{sentenceCase PluralRouteName}}UseCase.execute();
+  return response.json(result);
+  }
+}
+
+export { List{{sentenceCase PluralRouteName}}Controller }

@@ -1,0 +1,16 @@
+import { Router } from 'express';
+
+import { create{{sentenceCase routeName}}Controller } from '../../modules/{{moduleName}}/useCases/{{routeName}}/create{{sentenceCase routeName}}';
+import { list{{sentenceCase PluralRouteName}}Controller } from '../../modules/{{moduleName}}/useCases/{{routeName}}/list{{sentenceCase PluralRouteName}}';
+
+const {{moduleName}}{{sentenceCase PluralRouteName}}Routes = Router();
+
+{{moduleName}}{{sentenceCase PluralRouteName}}Routes.post('/', (request, response) => {
+  return create{{sentenceCase routeName}}Controller.handle(request, response);
+});
+
+{{moduleName}}{{sentenceCase PluralRouteName}}Routes.get('/', (request, response) => {
+  return list{{sentenceCase PluralRouteName}}Controller.handle(request, response);
+});
+
+export { {{moduleName}}{{sentenceCase PluralRouteName}}Routes };

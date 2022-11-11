@@ -1,0 +1,46 @@
+import { {{sentenceCase routeName}} } from '../../model/{{sentenceCase routeName}}';
+import { I{{sentenceCase PluralRouteName}}Repository, ICreate{{sentenceCase routeName}}DTO } from '../types/I{{sentenceCase PluralRouteName}}Repository';
+
+class {{sentenceCase PluralRouteName}}Repository implements I{{sentenceCase PluralRouteName}}Repository {
+  private {{PluralRouteName}}: Array<{{sentenceCase routeName}}>;
+
+  // ### remove if not necessary ###
+  private static INSTANCE: {{sentenceCase PluralRouteName}}Repository;
+
+  private constructor() {
+    this.{{PluralRouteName}} = [];
+  }
+
+  public static getInstance(): {{sentenceCase PluralRouteName}}Repository {
+    if (!{{sentenceCase PluralRouteName}}Repository.INSTANCE) {
+      {{sentenceCase PluralRouteName}}Repository.INSTANCE = new {{sentenceCase PluralRouteName}}Repository(); // Switch database here
+    }
+    return {{sentenceCase PluralRouteName}}Repository.INSTANCE;
+  }
+
+  // ### remove if not necessary ###
+
+  create({ name, description }: ICreate{{sentenceCase routeName}}DTO) {
+    const {{routeName}} = new {{sentenceCase routeName}}();
+
+    Object.assign({{routeName}}, {
+      name,
+      description,
+      created_at: new Date(),
+    })
+
+    this.{{PluralRouteName}}.push({{routeName}})
+  }
+
+  list(): Array<{{sentenceCase routeName}}> {
+    return this.{{PluralRouteName}};
+  };
+
+  findByName(name: string): {{sentenceCase routeName}} {
+    const {{routeName}} = this.{{PluralRouteName}}.find({{routeName}} => {{routeName}}.name === name);
+
+    return {{routeName}};
+  }
+}
+
+export { {{sentenceCase PluralRouteName}}Repository }
