@@ -7,5 +7,56 @@
     "contact": {
       "email": "natanael@hotmail.co.jp"
     }
+  },
+  "paths": {
+    "/cars/categories": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create a category",
+        "description": "Create a new category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category already exists"
+          }
+        }
+      }
+    }
   }
 }
