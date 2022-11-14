@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { Category } from '../../../entities/Category';
 import { container } from 'tsyringe';
+import { Category } from '../../../entities/Category';
 import { CreateCategoryUseCase } from './CreateCategoryUseCase';
 
 class CreateCategoryController {
@@ -11,10 +11,10 @@ class CreateCategoryController {
 
     try {
       await createCategoryUseCase.execute({ name, description });
+      return response.status(201).send();
     } catch (e) {
       return response.status(400).json({ message: (e as Error).message });
     }
-    return response.status(201).send();
   }
 }
 

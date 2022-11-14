@@ -25,7 +25,7 @@ class CreateCategoryUseCase {
       throw new Error("Check category name!")
     }
 
-    this.categoriesRepository.create({ name, description })
+    await this.categoriesRepository.create({ name, description })
   }
 }
 
