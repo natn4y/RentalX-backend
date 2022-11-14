@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import multer from 'multer';
 
-import createCategoryController from '../../modules/cars/useCases/category/createCategory';
+import { CreateCategoryController } from '../../modules/cars/useCases/category/createCategory/CreateCategoryController';
 import { importCategoryController } from '../../modules/cars/useCases/category/importCategory';
 import { listCategoriesController } from '../../modules/cars/useCases/category/listCategory';
 
@@ -11,9 +11,10 @@ const upload = multer({
   dest: './tmp',
 });
 
-carsCategoriesRoutes.post('/', (request, response) => {
-  return createCategoryController().handle(request, response);
-});
+const createCategoryController = new CreateCategoryController()
+
+// createCategoryController.handle funciona como um Middleware, ele já possui o request e response
+carsCategoriesRoutes.post('/', createCategoryController.handle)
 
 carsCategoriesRoutes.get('/', (request, response) => {
   return listCategoriesController.handle(request, response);
