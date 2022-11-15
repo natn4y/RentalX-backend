@@ -11,7 +11,7 @@ class CreateSpecificationController {
 
     try {
       const result = await createSpecificationUseCase.execute({ name, description });
-      return response.json(result), response.status(200).send();
+      return response.json(result), response.status(201).send();
 
     } catch (e) {
       return response.status(400).json({ message: (e as Error).message });

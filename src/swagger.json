@@ -32,7 +32,7 @@
           }
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "Created"
           },
           "400": {
@@ -97,7 +97,7 @@
             }
           },
           "responses": {
-            "200": {
+            "201": {
               "description": "Created"
             },
             "400": {
@@ -128,7 +128,7 @@
           }
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "Created"
           }
         }
@@ -159,7 +159,7 @@
           }
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "Created"
           },
           "400": {
