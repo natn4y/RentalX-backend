@@ -1,6 +1,47 @@
 const config = plop => {
+  plop.setGenerator( 'createUseCases', {
+    description: 'Create useCases',
+      prompts: [
+        {
+          type: 'input',
+          name: 'moduleName',
+          message: 'Em qual pasta dentro de modules você quer salvar?'
+        },
+        {
+          type: 'input',
+          name: 'folderName',
+          message: 'Defina o nome da pasta a qual o arquivo será salvo'
+        },
+        {
+          type: 'input',
+          name: 'useCaseName',
+          message: 'Defina o nome do useCase "use espaço para separar"'
+        },
+      ],
+      actions: [
+        {
+          type: 'add',
+          path: 'src/modules/{{moduleName}}/useCases/{{folderName}}/{{camelCase useCaseName}}/{{properCase useCaseName}}Controller.ts',
+          templateFile: 'plop-Templates/modules/useCases/customUseCase/Controller.hbs',
+          skipIfExists: true,
+        },
+        {
+          type: 'add',
+          path: 'src/modules/{{moduleName}}/useCases/{{folderName}}/{{camelCase useCaseName}}/{{properCase useCaseName}}UseCase.ts',
+          templateFile: 'plop-Templates/modules/useCases/customUseCase/useCase.hbs',
+          skipIfExists: true,
+        },
+        {
+          type: 'add',
+          path: 'src/modules/{{moduleName}}/useCases/{{folderName}}/{{camelCase useCaseName}}/index.ts',
+          templateFile: 'plop-Templates/modules/useCases/customUseCase/index.hbs',
+          skipIfExists: true,
+        },
+      ],
+  }),
+
   plop.setGenerator('Estrutura SOLID', {
-      description: 'this is a SOLID generator',
+      description: 'this is a mvc generator',
       prompts: [
         {
           type: 'input',

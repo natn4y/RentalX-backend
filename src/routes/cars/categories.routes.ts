@@ -17,7 +17,6 @@ const createCategoryController = new CreateCategoryController()
 const listCategoriesController = new ListCategoriesController()
 const importCategoryController = new ImportCategoryController()
 
-// createCategoryController.handle funciona como um Middleware, ele já possui o request e response.
 carsCategoriesRoutes.post('/', ensureAuthenticated, createCategoryController.handle)
 
 carsCategoriesRoutes.get('/', listCategoriesController.handle);

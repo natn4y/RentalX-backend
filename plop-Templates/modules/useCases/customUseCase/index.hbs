@@ -1,0 +1,9 @@
+import { {{properCase useCaseName}}Controller } from './{{properCase useCaseName}}Controller';
+import { {{properCase useCaseName}}UseCase } from './{{properCase useCaseName}}UseCase';
+
+const {{camelCase useCaseName}}UseCase = new {{properCase useCaseName}}UseCase();
+const {{camelCase useCaseName}}Controller = new {{properCase useCaseName}}Controller(
+  {{camelCase useCaseName}}UseCase
+)
+
+export { {{camelCase useCaseName}}Controller };
