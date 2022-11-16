@@ -18,9 +18,9 @@ class Specification {
 
   constructor() {
     if (!this.id) {
-      this.id = uuidV4()
+      this.id = uuidV4();
     }
   }
 }
 
-export { Specification }
+export { Specification };

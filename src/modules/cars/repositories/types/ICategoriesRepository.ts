@@ -1,8 +1,8 @@
-import { Category } from '../../entities/Category'
+import { Category } from '../../entities/Category';
 
 interface ICreateCategoryDTO {
-  name: string
-  description:  string
+  name: string;
+  description:  string;
 }
 
 interface ICategoriesRepository {

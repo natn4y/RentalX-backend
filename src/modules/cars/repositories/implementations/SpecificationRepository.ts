@@ -1,4 +1,5 @@
 import { getRepository, Repository } from 'typeorm';
+
 import { Specification } from '../../entities/Specification';
 import { ICreateSpecificationDTO, ISpecificationsRepository } from '../types/ISpecificationsRepository';
 class SpecificationsRepository implements ISpecificationsRepository {
@@ -13,13 +14,13 @@ class SpecificationsRepository implements ISpecificationsRepository {
       description,
       name,
     });
-    this.repository.save(specification)
+    this.repository.save(specification);
   }
 
   findByName(name: string): Promise<Specification> {
     const specification = this.repository.findOne({name})
 
-    return specification
+    return specification;
   }
 
   async list(): Promise<Specification[]> {

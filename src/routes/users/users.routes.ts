@@ -10,6 +10,6 @@ const listUsersController = new ListUsersController()
 
 
 userRoutes.post('/', ensureAuthenticated, createUserController.handle);
-userRoutes.get('/', listUsersController.handle);
+userRoutes.get('/', ensureAuthenticated, listUsersController.handle);
 
 export { userRoutes }

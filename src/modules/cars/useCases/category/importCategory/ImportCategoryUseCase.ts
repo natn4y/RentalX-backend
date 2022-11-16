@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { parse as csvParse } from "csv-parse";
 import { inject, injectable  } from 'tsyringe';
+
 import { ICategoriesRepository } from '../../../repositories/types/ICategoriesRepository';
 
 interface IImportCategory {
@@ -18,7 +19,7 @@ class ImportCategoryUseCase {
   loadCategories(file: Express.Multer.File): Promise<IImportCategory[]> {
     return new Promise((resolve, reject) => {
       const stream = fs.createReadStream(file.path);
-      const categories: Array<IImportCategory> = []
+      const categories: Array<IImportCategory> = [];
 
       const parseFile = csvParse();
 
@@ -38,7 +39,7 @@ class ImportCategoryUseCase {
       .on('error', (err) => {
         reject(err);
       })
-    })
+    });
   }
 
   async execute(file: Express.Multer.File): Promise<void> {
@@ -53,8 +54,8 @@ class ImportCategoryUseCase {
         await this.categoriesRepository.create({
           name,
           description,
-        })
-      }
+        });
+      };
     })
 
   }

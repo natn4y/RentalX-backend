@@ -48,7 +48,19 @@ class UserRepository implements IUsersRepository {
 
    async list() {
     const user = this.repository.find();
-    return user;
+    const userFiltered = await (await user).map(user => {
+      return {
+        id: user.id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        driver_license: user.driver_license,
+        isAdmin: user.isAdmin,
+        create_at: user.create_at,
+      }
+    })
+
+    return userFiltered as User[];
   }
 
 

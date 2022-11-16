@@ -1,4 +1,5 @@
 import { inject, injectable } from 'tsyringe';
+
 import { ISpecificationsRepository } from '../../../repositories/types/ISpecificationsRepository';
 
 @injectable()
@@ -13,4 +14,4 @@ class ListSpecificationsUseCase {
   }
 }
 
-export { ListSpecificationsUseCase }
+export { ListSpecificationsUseCase };
