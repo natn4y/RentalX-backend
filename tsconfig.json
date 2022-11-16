@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "typeRoots": [
+      "./src/@types",
+      "./custom_typings",
+      "./@types",
+      "./node_modules/@types"
+    ],
     "resolveJsonModule": true,
     "sourceMap": true,
     /* Visit https://aka.ms/tsconfig to read more about this file */
