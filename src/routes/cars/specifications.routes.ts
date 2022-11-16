@@ -1,5 +1,6 @@
 
 import { Router } from 'express';
+import { ensureAuthenticated } from '../../middlewares/ensureAuthenticated';
 
 const carsSpecificationsRoutes = Router();
 
@@ -10,7 +11,7 @@ const createSpecificationController = new CreateSpecificationController();
 
 const listSpecificationController = new ListSpecificationsController();
 
-carsSpecificationsRoutes.post('/', createSpecificationController.handle);
+carsSpecificationsRoutes.post('/', ensureAuthenticated, createSpecificationController.handle);
 
 carsSpecificationsRoutes.get('/', listSpecificationController.handle)
 
