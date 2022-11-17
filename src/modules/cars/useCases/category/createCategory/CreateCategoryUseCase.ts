@@ -22,10 +22,6 @@ class CreateCategoryUseCase {
       throw new AppError('Category already exists!');
     }
 
-    if (name === '') {
-      throw new AppError("Check category name!");
-    }
-
     await this.categoriesRepository.create({ name, description });
   }
 }
