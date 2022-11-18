@@ -8,4 +8,4 @@ interface ICreateUserDTO {
   driver_license: string;
 }
 
-export { ICreateUserDTO }
+export { ICreateUserDTO };

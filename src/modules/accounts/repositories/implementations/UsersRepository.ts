@@ -1,31 +1,31 @@
-import { getRepository, Repository } from 'typeorm';
-import { User } from '../../entities/User';
-import { IUsersRepository } from '../types/IUsersRepository';
-import { ICreateUserDTO } from '../types/IUsersRepository'
+import { getRepository, Repository } from "typeorm";
+
+import { User } from "../../entities/User";
+import { IUsersRepository, ICreateUserDTO } from "../types/IUsersRepository";
 
 class UserRepository implements IUsersRepository {
   private repository: Repository<User>;
 
-  constructor () {
+  constructor() {
     this.repository = getRepository(User);
   }
 
   async findByUserName(username: string): Promise<User> {
-    const user = await this.repository.findOne({username})
+    const user = await this.repository.findOne({ username });
 
     return user;
   }
 
   async findByEmail(email: string): Promise<User> {
-    const user = await this.repository.findOne({email})
+    const user = await this.repository.findOne({ email });
 
     return user;
   }
 
   async findById(id: string): Promise<User> {
-    const user = await this.repository.findOne({id})
+    const user = await this.repository.findOne({ id });
 
-    return user
+    return user;
   }
 
   async create({
@@ -50,9 +50,11 @@ class UserRepository implements IUsersRepository {
     await this.repository.save(user);
   }
 
-   async list() {
+  async list() {
     const user = this.repository.find();
-    const userFiltered = await (await user).map(user => {
+    const userFiltered = await (
+      await user
+    ).map((user) => {
       return {
         id: user.id,
         name: user.name,
@@ -61,14 +63,12 @@ class UserRepository implements IUsersRepository {
         driver_license: user.driver_license,
         isAdmin: user.isAdmin,
         create_at: user.create_at,
-        avatar: user.avatar
-      }
-    })
+        avatar: user.avatar,
+      };
+    });
 
     return userFiltered as User[];
   }
-
-
 }
 
-export { UserRepository }
+export { UserRepository };

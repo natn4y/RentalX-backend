@@ -1,14 +1,22 @@
-import { User } from '../../entities/User';
-import { ICreateUserDTO, IUsersRepository } from '../types/IUsersRepository';
+import { User } from "../../entities/User";
+import { ICreateUserDTO, IUsersRepository } from "../types/IUsersRepository";
 
 class UsersRepositoryInMemory implements IUsersRepository {
   users: User[] = [];
 
-  async create({ driver_license, name, email, password }: ICreateUserDTO): Promise<void> {
+  async create({
+    driver_license,
+    name,
+    email,
+    password,
+  }: ICreateUserDTO): Promise<void> {
     const user = new User();
 
     Object.assign(user, {
-      driver_license, email, name, password
+      driver_license,
+      email,
+      name,
+      password,
     });
 
     this.users.push(user);

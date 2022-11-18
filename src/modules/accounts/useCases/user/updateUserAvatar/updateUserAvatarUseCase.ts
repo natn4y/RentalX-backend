@@ -1,7 +1,7 @@
-import { inject, injectable } from 'tsyringe';
-import { IUsersRepository } from '../../../repositories/types/IUsersRepository';
+import { inject, injectable } from "tsyringe";
 
-import { deleteFile } from '../../../../../utils/file';
+import { deleteFile } from "@utils/file";
+import { IUsersRepository } from "@modules/accounts/repositories/types/IUsersRepository";
 
 interface IRequest {
   user_id: string;
@@ -11,7 +11,7 @@ interface IRequest {
 @injectable()
 class UpdateUserAvatarUseCase {
   constructor(
-    @inject('UsersRepository')
+    @inject("UsersRepository")
     private usersRepository: IUsersRepository
   ) {}
 
@@ -28,4 +28,4 @@ class UpdateUserAvatarUseCase {
   }
 }
 
-export { UpdateUserAvatarUseCase }
+export { UpdateUserAvatarUseCase };

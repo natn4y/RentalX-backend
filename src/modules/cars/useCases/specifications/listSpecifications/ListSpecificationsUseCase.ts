@@ -1,13 +1,13 @@
-import { inject, injectable } from 'tsyringe';
+import { inject, injectable } from "tsyringe";
 
-import { ISpecificationsRepository } from '../../../repositories/types/ISpecificationsRepository';
+import { ISpecificationsRepository } from "@modules/cars/repositories/types/ISpecificationsRepository";
 
 @injectable()
 class ListSpecificationsUseCase {
   constructor(
-    @inject('SpecificationsRepository')
+    @inject("SpecificationsRepository")
     private specificationsRepository: ISpecificationsRepository
-    ) {}
+  ) {}
 
   execute() {
     return this.specificationsRepository.list();

@@ -1,5 +1,8 @@
-import { Category } from '../../entities/Category';
-import { ICategoriesRepository, ICreateCategoryDTO } from '../types/ICategoriesRepository';
+import { Category } from "../../entities/Category";
+import {
+  ICategoriesRepository,
+  ICreateCategoryDTO,
+} from "../types/ICategoriesRepository";
 
 class CategoriesRepositoryInMemory implements ICategoriesRepository {
   categories: Category[] = [];
@@ -16,7 +19,8 @@ class CategoriesRepositoryInMemory implements ICategoriesRepository {
     const category = new Category();
 
     Object.assign(category, {
-      name, description
+      name,
+      description,
     });
 
     this.categories.push(category);

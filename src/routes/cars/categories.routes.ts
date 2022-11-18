@@ -1,36 +1,37 @@
-import { Router } from 'express';
-import multer from 'multer';
+import { Router } from "express";
+import multer from "multer";
 
-import { CreateCategoryController } from '../../modules/cars/useCases/category/createCategory/CreateCategoryController';
-import { ImportCategoryController } from '../../modules/cars/useCases/category/importCategory/ImportCategoryController';
-import { ListCategoriesController } from '../../modules/cars/useCases/category/listCategory/ListCategoriesController';
+import { ensureAuthenticated } from "../../middlewares/ensureAuthenticated";
 
-import { ensureAuthenticated } from '../../middlewares/ensureAuthenticated';
+import { CreateCategoryController } from "../../modules/cars/useCases/category/createCategory/CreateCategoryController";
+import { ImportCategoryController } from "../../modules/cars/useCases/category/importCategory/ImportCategoryController";
+import { ListCategoriesController } from "../../modules/cars/useCases/category/listCategory/ListCategoriesController";
 
 const carsCategoriesRoutes = Router();
 
 const upload = multer({
-  dest: './tmp',
+  dest: "./tmp",
 });
 
-const createCategoryController = new CreateCategoryController()
-const listCategoriesController = new ListCategoriesController()
-const importCategoryController = new ImportCategoryController()
-
-carsCategoriesRoutes.post('/', ensureAuthenticated, createCategoryController.handle)
-
-carsCategoriesRoutes.get('/', listCategoriesController.handle);
+const createCategoryController = new CreateCategoryController();
+const listCategoriesController = new ListCategoriesController();
+const importCategoryController = new ImportCategoryController();
 
 carsCategoriesRoutes.post(
-  '/import',
-  upload.single('file'),
+  "/",
+  ensureAuthenticated,
+  createCategoryController.handle
+);
+
+carsCategoriesRoutes.get("/", listCategoriesController.handle);
+
+carsCategoriesRoutes.post(
+  "/import",
+  upload.single("file"),
   ensureAuthenticated,
   (request, response) => {
-    return importCategoryController.handle(
-      request,
-      response,
-    )
-  },
-)
+    return importCategoryController.handle(request, response);
+  }
+);
 
 export { carsCategoriesRoutes };

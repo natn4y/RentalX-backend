@@ -1,8 +1,8 @@
-import { Request, Response } from 'express';
-import { container } from 'tsyringe';
+import { Request, Response } from "express";
+import { container } from "tsyringe";
 
-import { Category } from '../../../entities/Category';
-import { CreateCategoryUseCase } from './CreateCategoryUseCase';
+import { Category } from "../../../entities/Category";
+import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
 class CreateCategoryController {
   async handle(request: Request, response: Response): Promise<Response> {
