@@ -46,7 +46,7 @@ export class CreateCars1668884860426 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: "create_at",
+            name: "created_at",
             type: "timestamp",
             default: "now()",
           },
