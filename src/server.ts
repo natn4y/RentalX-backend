@@ -1,16 +1,19 @@
+/* eslint-disable import-helpers/order-imports */
 import express, { NextFunction, Request, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 
 import { AppError } from "@errors/AppError";
 
+import createConnection from "./database";
+
 import "express-async-errors";
 
-import "./database";
 import "@shared/container";
 
 import { router } from "./routes";
 import swaggerFile from "./swagger.json";
 
+createConnection();
 const app = express();
 const port = 3333;
 
