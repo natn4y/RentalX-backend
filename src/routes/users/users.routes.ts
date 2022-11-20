@@ -1,9 +1,9 @@
 import { Router } from "express";
+import { ensureAdmin } from "middlewares/ensureAdmin";
 import multer from "multer";
 
 import uploadConfig from "../../config/upload";
 import { ensureAuthenticated } from "../../middlewares/ensureAuthenticated";
-
 import { CreateUserController } from "../../modules/accounts/useCases/user/createUser/createUserController";
 import { ListUsersController } from "../../modules/accounts/useCases/user/listUsers/listUsersController";
 import { UpdateUserAvatarController } from "../../modules/accounts/useCases/user/updateUserAvatar/updateUserAvatarController";
@@ -18,7 +18,12 @@ const updateUsersAvatarController = new UpdateUserAvatarController();
 
 usersRoutes.post("/", createUserController.handle);
 
-usersRoutes.get("/", ensureAuthenticated, listUsersController.handle);
+usersRoutes.get(
+  "/",
+  ensureAuthenticated,
+  ensureAdmin,
+  listUsersController.handle
+);
 
 usersRoutes.patch(
   "/avatar",
