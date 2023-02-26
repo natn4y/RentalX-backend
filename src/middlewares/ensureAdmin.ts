@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 import { UserRepository } from "@modules/accounts/repositories/implementations/UsersRepository";
 import { AppError } from "@shared/errors/AppError";
 
-export async function ensureAdmin(
+async function ensureAdmin(
   request: Request,
   response: Response,
   next: NextFunction
@@ -19,3 +19,5 @@ export async function ensureAdmin(
 
   return next();
 }
+
+export { ensureAdmin };

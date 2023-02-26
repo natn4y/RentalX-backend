@@ -10,7 +10,7 @@ class ListSpecificationsUseCase {
   ) {}
 
   execute() {
-    return this.specificationsRepository.list();
+    return null;
   }
 }
 
