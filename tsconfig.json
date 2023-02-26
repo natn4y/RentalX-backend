@@ -17,7 +17,8 @@
       "@config/*": ["config/*"],
       "@shared/*": ["shared/*"],
       "@errors/*": ["shared/errors/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@middlewares/*": ["middlewares/*"]
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,

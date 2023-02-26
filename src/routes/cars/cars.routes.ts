@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { ensureAdmin } from "middlewares/ensureAdmin";
-import { ensureAuthenticated } from "middlewares/ensureAuthenticated";
 import multer from "multer";
 
+import { ensureAdmin } from "@middlewares/ensureAdmin";
+import { ensureAuthenticated } from "@middlewares/ensureAuthenticated";
 import { CreateCarController } from "@modules/cars/useCases/car/createCar/createCarController";
 import { CreateCarSpecificationController } from "@modules/cars/useCases/car/createCarSpecification/CreateCarSpecificationController";
 import { ListAvailableCarsController } from "@modules/cars/useCases/car/listAvailableCars/ListAvailableCarsController";

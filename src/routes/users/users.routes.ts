@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { ensureAdmin } from "middlewares/ensureAdmin";
 import multer from "multer";
+
+import { ensureAdmin } from "@middlewares/ensureAdmin";
 
 import uploadConfig from "../../config/upload";
 import { ensureAuthenticated } from "../../middlewares/ensureAuthenticated";
