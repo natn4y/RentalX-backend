@@ -12,6 +12,7 @@ interface IRequest {
   fine_amount: number;
   brand: string;
   category_id: string;
+  id?: string;
 }
 
 @injectable()
@@ -21,6 +22,7 @@ class CreateCarUseCase {
     private carsRepository: ICarsRepository
   ) {}
   async execute({
+    id,
     name,
     description,
     daily_rate,
@@ -38,6 +40,7 @@ class CreateCarUseCase {
     }
 
     const car = await this.carsRepository.create({
+      id,
       name,
       description,
       daily_rate,
