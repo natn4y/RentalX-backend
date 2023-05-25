@@ -8,7 +8,7 @@ import {
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-import { Car } from "@modules/cars/entities/Car";
+import { Car } from "../../cars/entities/Car";
 
 @Entity("rentals")
 class Rental {
