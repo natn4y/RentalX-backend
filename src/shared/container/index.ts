@@ -1,6 +1,8 @@
 import { container } from "tsyringe";
 
+import { IUsersTokensRepository } from "@modules/accounts/dtos/IUsersTokensRepository";
 import { UserRepository } from "@modules/accounts/repositories/implementations/UsersRepository";
+import { UsersTokensRepository } from "@modules/accounts/repositories/implementations/UsersTokensRepository";
 import { IUsersRepository } from "@modules/accounts/repositories/types/IUsersRepository";
 import { CarsImagesRepository } from "@modules/cars/repositories/implementations/CarsImagesRepository";
 import { CarsRepository } from "@modules/cars/repositories/implementations/CarsRepository";
@@ -46,4 +48,9 @@ container.registerSingleton<IRentalsRepository>(
 container.registerSingleton<IDateProvider>(
   "DayJsDateProvider",
   DayJsDateProvider
+);
+
+container.registerSingleton<IUsersTokensRepository>(
+  "UsersTokensRepository",
+  UsersTokensRepository
 );
