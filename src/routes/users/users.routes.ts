@@ -2,6 +2,7 @@ import { Router } from "express";
 import multer from "multer";
 
 import { ensureAdmin } from "@middlewares/ensureAdmin";
+import { SendForgotPasswordMailController } from "@modules/accounts/useCases/sendForgotPasswordMail/SendForgotPasswordMailController";
 
 import uploadConfig from "../../config/upload";
 import { ensureAuthenticated } from "../../middlewares/ensureAuthenticated";
@@ -16,6 +17,7 @@ const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));
 const createUserController = new CreateUserController();
 const listUsersController = new ListUsersController();
 const updateUsersAvatarController = new UpdateUserAvatarController();
+const sendForgotPasswordMailController = new SendForgotPasswordMailController();
 
 usersRoutes.post("/", createUserController.handle);
 
